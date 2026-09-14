@@ -30,6 +30,13 @@
             "description": "~40 iconos defineComponent + createIcon() para sets externos"
         },
         {
+            "name": "index",
+            "type": "lib",
+            "path": "ui/index.ts",
+            "target": "ui/index.ts",
+            "description": "Barrel — re-exporta todos os componentes copiados"
+        },
+        {
             "name": "button",
             "type": "component",
             "path": "ui/button.ts",
