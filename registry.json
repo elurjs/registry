@@ -1,0 +1,386 @@
+{
+    "$schema": "./registry.schema.json",
+    "name": "elur-ui",
+    "version": "0.1.0",
+    "theme": "precision",
+    "description": "Componentes copiables Elur — headless (@elurjs/ui-brain) + estilos tokens",
+    "files": [
+        {
+            "name": "tokens.css",
+            "type": "tokens",
+            "path": "ui/tokens.css",
+            "target": "ui/tokens.css",
+            "description": "Tokens del tema precision (primitivos + semánticos light/dark)"
+        },
+        {
+            "name": "ui.css",
+            "type": "styles",
+            "path": "ui/ui.css",
+            "target": "ui/ui.css",
+            "dependencies": [
+                "tokens.css"
+            ],
+            "description": "Estilos de todos los componentes sobre [data-elur]"
+        },
+        {
+            "name": "icons",
+            "type": "lib",
+            "path": "ui/icons.ts",
+            "target": "ui/icons.ts",
+            "description": "~40 iconos defineComponent + createIcon() para sets externos"
+        },
+        {
+            "name": "button",
+            "type": "component",
+            "path": "ui/button.ts",
+            "target": "ui/button.ts",
+            "dependencies": [
+                "icons"
+            ],
+            "brainImports": [
+                "@elurjs/ui-brain/internal"
+            ],
+            "description": "Botón: 6 variantes, 4 tamaños, loading con spinner"
+        },
+        {
+            "name": "input",
+            "type": "component",
+            "path": "ui/input.ts",
+            "target": "ui/input.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/internal"
+            ],
+            "description": "Input con integración createForm (field prop)"
+        },
+        {
+            "name": "field",
+            "type": "component",
+            "path": "ui/field.ts",
+            "target": "ui/field.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/utils"
+            ],
+            "description": "Label + control + descripción + error role=alert"
+        },
+        {
+            "name": "label",
+            "type": "component",
+            "path": "ui/label.ts",
+            "target": "ui/label.ts",
+            "description": "Label con indicador required"
+        },
+        {
+            "name": "card",
+            "type": "component",
+            "path": "ui/card.ts",
+            "target": "ui/card.ts",
+            "description": "Superficie: header/content/footer por slots"
+        },
+        {
+            "name": "badge",
+            "type": "component",
+            "path": "ui/badge.ts",
+            "target": "ui/badge.ts",
+            "description": "Etiqueta de estado: 6 variantes"
+        },
+        {
+            "name": "alert",
+            "type": "component",
+            "path": "ui/alert.ts",
+            "target": "ui/alert.ts",
+            "dependencies": [
+                "icons"
+            ],
+            "description": "Mensaje de estado: info/success/warning/destructive"
+        },
+        {
+            "name": "separator",
+            "type": "component",
+            "path": "ui/separator.ts",
+            "target": "ui/separator.ts",
+            "description": "Hairline horizontal/vertical"
+        },
+        {
+            "name": "skeleton",
+            "type": "component",
+            "path": "ui/skeleton.ts",
+            "target": "ui/skeleton.ts",
+            "description": "Placeholder de carga animado"
+        },
+        {
+            "name": "kbd",
+            "type": "component",
+            "path": "ui/kbd.ts",
+            "target": "ui/kbd.ts",
+            "description": "Tecla estilo keyboard"
+        },
+        {
+            "name": "dialog",
+            "type": "component",
+            "path": "ui/dialog.ts",
+            "target": "ui/dialog.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/dialog",
+                "@elurjs/ui-brain/utils"
+            ],
+            "machineDeps": [
+                "@zag-js/dialog",
+                "@zag-js/presence"
+            ],
+            "description": "Modal controlado por signal, focus trap + scroll lock (zag)"
+        },
+        {
+            "name": "tabs",
+            "type": "component",
+            "path": "ui/tabs.ts",
+            "target": "ui/tabs.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/tabs"
+            ],
+            "machineDeps": [
+                "@zag-js/tabs"
+            ],
+            "description": "Pestañas con items declarativos + value controlado"
+        },
+        {
+            "name": "accordion",
+            "type": "component",
+            "path": "ui/accordion.ts",
+            "target": "ui/accordion.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/accordion",
+                "@elurjs/ui-brain/utils"
+            ],
+            "machineDeps": [
+                "@zag-js/accordion",
+                "@zag-js/presence"
+            ],
+            "description": "Secciones colapsables, single/multiple, value controlado"
+        },
+        {
+            "name": "checkbox",
+            "type": "component",
+            "path": "ui/checkbox.ts",
+            "target": "ui/checkbox.ts",
+            "dependencies": [
+                "icons"
+            ],
+            "brainImports": [
+                "@elurjs/ui-brain/checkbox"
+            ],
+            "machineDeps": [
+                "@zag-js/checkbox"
+            ],
+            "description": "Checkbox con indeterminate + hidden input de formulario"
+        },
+        {
+            "name": "switch",
+            "type": "component",
+            "path": "ui/switch.ts",
+            "target": "ui/switch.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/switch"
+            ],
+            "machineDeps": [
+                "@zag-js/switch"
+            ],
+            "description": "Toggle on/off con checked controlado"
+        },
+        {
+            "name": "collapsible",
+            "type": "component",
+            "path": "ui/collapsible.ts",
+            "target": "ui/collapsible.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/collapsible",
+                "@elurjs/ui-brain/utils"
+            ],
+            "machineDeps": [
+                "@zag-js/collapsible",
+                "@zag-js/presence"
+            ],
+            "description": "Sección expandible con trigger"
+        },
+        {
+            "name": "radio-group",
+            "type": "component",
+            "path": "ui/radio-group.ts",
+            "target": "ui/radio-group.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/radio-group"
+            ],
+            "machineDeps": [
+                "@zag-js/radio-group"
+            ],
+            "description": "Grupo de radios con items declarativos"
+        },
+        {
+            "name": "slider",
+            "type": "component",
+            "path": "ui/slider.ts",
+            "target": "ui/slider.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/slider"
+            ],
+            "machineDeps": [
+                "@zag-js/slider"
+            ],
+            "description": "Slider min/max/step con value controlado"
+        },
+        {
+            "name": "tooltip",
+            "type": "component",
+            "path": "ui/tooltip.ts",
+            "target": "ui/tooltip.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/tooltip",
+                "@elurjs/ui-brain/utils"
+            ],
+            "machineDeps": [
+                "@zag-js/tooltip",
+                "@zag-js/presence",
+                "@floating-ui/dom"
+            ],
+            "description": "Tooltip con delay + posicionamiento floating-ui"
+        },
+        {
+            "name": "popover",
+            "type": "component",
+            "path": "ui/popover.ts",
+            "target": "ui/popover.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/popover",
+                "@elurjs/ui-brain/utils"
+            ],
+            "machineDeps": [
+                "@zag-js/popover",
+                "@zag-js/presence",
+                "@floating-ui/dom"
+            ],
+            "description": "Panel flotante con trigger, open controlado"
+        },
+        {
+            "name": "select",
+            "type": "component",
+            "path": "ui/select.ts",
+            "target": "ui/select.ts",
+            "dependencies": [
+                "icons"
+            ],
+            "brainImports": [
+                "@elurjs/ui-brain/select",
+                "@elurjs/ui-brain/utils"
+            ],
+            "machineDeps": [
+                "@zag-js/select",
+                "@zag-js/presence",
+                "@floating-ui/dom"
+            ],
+            "description": "Select con items declarativos + value controlado"
+        },
+        {
+            "name": "progress",
+            "type": "component",
+            "path": "ui/progress.ts",
+            "target": "ui/progress.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/progress"
+            ],
+            "machineDeps": [
+                "@zag-js/progress"
+            ],
+            "description": "Barra de progreso con ARIA completo"
+        },
+        {
+            "name": "avatar",
+            "type": "component",
+            "path": "ui/avatar.ts",
+            "target": "ui/avatar.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/avatar"
+            ],
+            "machineDeps": [
+                "@zag-js/avatar"
+            ],
+            "description": "Avatar con fallback a iniciales (estado de carga)"
+        },
+        {
+            "name": "toggle",
+            "type": "component",
+            "path": "ui/toggle.ts",
+            "target": "ui/toggle.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/toggle"
+            ],
+            "machineDeps": [
+                "@zag-js/toggle"
+            ],
+            "description": "Botón pressed/unpressed"
+        },
+        {
+            "name": "toggle-group",
+            "type": "component",
+            "path": "ui/toggle-group.ts",
+            "target": "ui/toggle-group.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/toggle-group"
+            ],
+            "machineDeps": [
+                "@zag-js/toggle-group"
+            ],
+            "description": "Grupo de toggles single/multiple"
+        },
+        {
+            "name": "menu",
+            "type": "component",
+            "path": "ui/menu.ts",
+            "target": "ui/menu.ts",
+            "dependencies": [
+                "icons"
+            ],
+            "brainImports": [
+                "@elurjs/ui-brain/menu",
+                "@elurjs/ui-brain/utils"
+            ],
+            "machineDeps": [
+                "@zag-js/menu",
+                "@zag-js/presence",
+                "@floating-ui/dom"
+            ],
+            "description": "Menú desplegable con trigger + on.select"
+        },
+        {
+            "name": "toast",
+            "type": "component",
+            "path": "ui/toast.ts",
+            "target": "ui/toast.ts",
+            "dependencies": [
+                "icons"
+            ],
+            "brainImports": [
+                "@elurjs/ui-brain/toast"
+            ],
+            "machineDeps": [
+                "@zag-js/toast"
+            ],
+            "description": "Toaster: createToaster store + componente de grupo"
+        },
+        {
+            "name": "table",
+            "type": "component",
+            "path": "ui/table.ts",
+            "target": "ui/table.ts",
+            "description": "Tabla por head/rows o slots"
+        },
+        {
+            "name": "textarea",
+            "type": "component",
+            "path": "ui/textarea.ts",
+            "target": "ui/textarea.ts",
+            "brainImports": [
+                "@elurjs/ui-brain/internal"
+            ],
+            "description": "Textarea con integración createForm"
+        }
+    ]
+}

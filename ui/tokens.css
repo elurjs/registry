@@ -1,0 +1,193 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Elur UI — tokens · tema "precision"
+   ─────────────────────────────────────────────────────────────────────────────
+   Firma visual: frío, nítido, preciso. Neutros con matiz azul-hielo (OKLCH),
+   bordes hairline antes que sombras, dark-first, motion funcional ≤300ms.
+
+   Estructura: 3 tiers — primitivos → semánticos → componente.
+   Temas alternativos = otro archivo de tokens (los componentes no cambian).
+   Toggle dark: `document.documentElement.dataset.theme = "dark"`.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* ── Tier 1 · primitivos ─────────────────────────────────────────────────── */
+
+:root {
+    /* Neutros fríos — matiz azul constante (la firma) */
+    --elur-gray-50:  oklch(0.984 0.003 247);
+    --elur-gray-100: oklch(0.968 0.004 247);
+    --elur-gray-200: oklch(0.929 0.006 247);
+    --elur-gray-300: oklch(0.871 0.008 247);
+    --elur-gray-400: oklch(0.710 0.015 247);
+    --elur-gray-500: oklch(0.556 0.018 247);
+    --elur-gray-600: oklch(0.446 0.020 247);
+    --elur-gray-700: oklch(0.374 0.022 247);
+    --elur-gray-800: oklch(0.278 0.025 247);
+    --elur-gray-900: oklch(0.211 0.028 247);
+    --elur-gray-950: oklch(0.143 0.030 247);
+
+    /* Elur blue — único accent */
+    --elur-blue-50:  oklch(0.962 0.023 240);
+    --elur-blue-100: oklch(0.925 0.045 240);
+    --elur-blue-200: oklch(0.861 0.082 240);
+    --elur-blue-300: oklch(0.782 0.122 242);
+    --elur-blue-400: oklch(0.695 0.155 244);
+    --elur-blue-500: oklch(0.600 0.180 246);   /* el accent */
+    --elur-blue-600: oklch(0.520 0.190 248);
+    --elur-blue-700: oklch(0.448 0.185 250);
+    --elur-blue-800: oklch(0.382 0.160 252);
+    --elur-blue-900: oklch(0.322 0.130 252);
+    --elur-blue-950: oklch(0.220 0.090 253);
+
+    /* Radius */
+    --elur-radius-sm:   0.25rem;   /* 4px  — badges, kbd */
+    --elur-radius:      0.375rem;  /* 6px  — inputs, buttons, cards */
+    --elur-radius-lg:   0.5rem;    /* 8px  — dialogs, popovers */
+    --elur-radius-xl:   0.75rem;   /* 12px — drawers, sheets */
+    --elur-radius-full: 999px;     /* switch, chips, avatar */
+
+    /* Alturas de control */
+    --elur-control-h-sm: 1.75rem;  /* 28px */
+    --elur-control-h-md: 2.25rem;  /* 36px — default */
+    --elur-control-h-lg: 2.75rem;  /* 44px */
+
+    /* Tipografía */
+    --elur-text-xs: 0.75rem;
+    --elur-text-sm: 0.8125rem;
+    --elur-text-md: 0.875rem;    /* base UI */
+    --elur-text-lg: 1rem;
+    --elur-text-xl: 1.125rem;
+    --elur-text-2xl: 1.375rem;
+    --elur-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --elur-font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+
+    /* Motion — rápido-decay, funcional */
+    --elur-duration-1: 75ms;    /* micro: hover, press */
+    --elur-duration-2: 120ms;   /* salida de overlays */
+    --elur-duration-3: 180ms;   /* entrada de overlays */
+    --elur-duration-4: 300ms;   /* layout: accordion, drawer */
+    --elur-ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+    --elur-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* solo popover/toast */
+
+    /* Elevación — sombras mínimas, solo overlays */
+    --elur-shadow-sm: 0 1px 2px oklch(0.1 0.02 250 / 0.06);
+    --elur-shadow-md: 0 4px 12px oklch(0.1 0.02 250 / 0.10),
+                      0 1px 3px oklch(0.1 0.02 250 / 0.08);
+    --elur-shadow-lg: 0 12px 32px oklch(0.1 0.02 250 / 0.14),
+                      0 4px 8px oklch(0.1 0.02 250 / 0.08);
+
+    /* Capas */
+    --elur-z-dropdown: 40;
+    --elur-z-sticky: 30;
+    --elur-z-overlay: 50;
+    --elur-z-modal: 60;
+    --elur-z-popover: 70;
+    --elur-z-toast: 80;
+    --elur-z-tooltip: 90;
+
+    --elur-density: 1;  /* multiplicador global de padding/altura */
+}
+
+/* ── Tier 2 · semánticos — light ─────────────────────────────────────────── */
+
+:root,
+[data-theme="light"] {
+    --elur-bg:              var(--elur-gray-50);
+    --elur-fg:              var(--elur-gray-900);
+    --elur-card:            oklch(1 0 0);
+    --elur-card-fg:         var(--elur-gray-900);
+    --elur-popover:         oklch(1 0 0);
+    --elur-popover-fg:      var(--elur-gray-900);
+    --elur-muted:           var(--elur-gray-100);
+    --elur-muted-fg:        var(--elur-gray-500);
+    --elur-accent:          var(--elur-blue-500);
+    --elur-accent-fg:       oklch(0.985 0.005 240);
+    --elur-primary:         var(--elur-blue-600);
+    --elur-primary-fg:      oklch(0.985 0.005 240);
+    --elur-secondary:       var(--elur-gray-100);
+    --elur-secondary-fg:    var(--elur-gray-800);
+    --elur-destructive:     oklch(0.577 0.215 27);
+    --elur-destructive-fg:  oklch(0.985 0.005 27);
+    --elur-success:         oklch(0.620 0.170 155);
+    --elur-warning:         oklch(0.720 0.150 85);
+    --elur-info:            var(--elur-blue-500);
+    --elur-border:          var(--elur-gray-200);
+    --elur-input:           var(--elur-gray-300);
+    --elur-ring:            oklch(0.600 0.180 246 / 0.55);
+    color-scheme: light;
+}
+
+/* ── Tier 2 · semánticos — dark (diseñado primero) ───────────────────────── */
+
+[data-theme="dark"] {
+    --elur-bg:              oklch(0.156 0.018 250);  /* azul-negruzco firma */
+    --elur-fg:              oklch(0.930 0.008 247);
+    --elur-card:            oklch(0.198 0.022 250);  /* +4% L sobre bg */
+    --elur-card-fg:         oklch(0.930 0.008 247);
+    --elur-popover:         oklch(0.220 0.024 250);
+    --elur-popover-fg:      oklch(0.930 0.008 247);
+    --elur-muted:           oklch(0.240 0.024 250);
+    --elur-muted-fg:        oklch(0.620 0.015 247);
+    --elur-accent:          oklch(0.700 0.160 244);
+    --elur-accent-fg:       oklch(0.150 0.020 250);
+    --elur-primary:         oklch(0.700 0.160 244);
+    --elur-primary-fg:      oklch(0.150 0.020 250);
+    --elur-secondary:       oklch(0.260 0.024 250);
+    --elur-secondary-fg:    oklch(0.880 0.010 247);
+    --elur-destructive:     oklch(0.640 0.200 27);
+    --elur-destructive-fg:  oklch(0.150 0.020 27);
+    --elur-success:         oklch(0.700 0.160 155);
+    --elur-warning:         oklch(0.780 0.150 85);
+    --elur-info:            oklch(0.700 0.160 244);
+    --elur-border:          oklch(0.280 0.024 250);
+    --elur-input:           oklch(0.330 0.026 250);
+    --elur-ring:            oklch(0.700 0.160 244 / 0.55);
+    --elur-shadow-sm: 0 1px 2px oklch(0 0 0 / 0.30);
+    --elur-shadow-md: 0 4px 12px oklch(0 0 0 / 0.40), 0 1px 3px oklch(0 0 0 / 0.30);
+    --elur-shadow-lg: 0 12px 32px oklch(0 0 0 / 0.50), 0 4px 8px oklch(0 0 0 / 0.35);
+    color-scheme: dark;
+}
+
+/* ── Contrato de estados — data-* que emiten las máquinas ──────────────────
+   [data-state="open|closed|active|inactive|checked|unchecked|..."]
+   [data-disabled]  [data-highlighted]  [data-selected]  [data-focus]
+   [data-orientation="horizontal|vertical"]  [data-part="…"]
+   Los componentes consumen estos hooks — el CSS de abajo los implementa.   */
+
+/* ── Focus ring doble — bg separation + anillo accent ────────────────────── */
+
+:where([data-elur-focus], [data-focus], [data-part]) :is(:focus-visible, [data-focus]) {
+    outline: none;
+}
+[data-focus],
+[data-part]:focus-visible {
+    box-shadow: 0 0 0 2px var(--elur-bg),
+                0 0 0 4px var(--elur-ring);
+    border-radius: var(--elur-radius);
+}
+
+/* ── Animaciones base (keyframes `ui-*`) ─────────────────────────────────── */
+
+@keyframes elur-fade-in    { from { opacity: 0 } to { opacity: 1 } }
+@keyframes elur-fade-out   { from { opacity: 1 } to { opacity: 0 } }
+@keyframes elur-scale-in   { from { opacity: 0; transform: scale(0.96) } to { opacity: 1; transform: scale(1) } }
+@keyframes elur-scale-out  { from { opacity: 1; transform: scale(1) } to { opacity: 0; transform: scale(0.96) } }
+@keyframes elur-slide-up   { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
+@keyframes elur-slide-down { from { opacity: 0; transform: translateY(-4px) } to { opacity: 1; transform: translateY(0) } }
+@keyframes elur-spin       { to { transform: rotate(360deg) } }
+@keyframes elur-skeleton   { 0% { opacity: 1 } 50% { opacity: 0.45 } 100% { opacity: 1 } }
+
+[data-state="open"][data-part="content"],
+[data-state="open"][data-part="backdrop"] {
+    animation: elur-fade-in var(--elur-duration-3) var(--elur-ease-out);
+}
+[data-state="closed"][data-part="content"],
+[data-state="closed"][data-part="backdrop"] {
+    animation: elur-fade-out var(--elur-duration-2) var(--elur-ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

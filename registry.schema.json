@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Elur UI Registry",
+    "type": "object",
+    "required": ["name", "version", "files"],
+    "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "theme": { "type": "string" },
+        "description": { "type": "string" },
+        "files": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["name", "type", "path", "target"],
+                "properties": {
+                    "name": { "type": "string", "description": "id para `elur ui add <name>`" },
+                    "type": { "type": "string", "enum": ["component", "lib", "tokens", "styles", "icon"] },
+                    "path": { "type": "string", "description": "ruta en el registry" },
+                    "target": { "type": "string", "description": "ruta destino en el proyecto (relativa a alias ui)" },
+                    "dependencies": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "otros ficheros del registry necesarios"
+                    },
+                    "brainImports": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "entry points de @elurjs/ui-brain usados (→ dependencia npm)"
+                    },
+                    "machineDeps": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "paquetes npm extra a instalar (máquinas zag, floating-ui…)"
+                    },
+                    "description": { "type": "string" }
+                }
+            }
+        }
+    }
+}

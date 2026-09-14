@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "jsx": "preserve",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
+        "types": [],
+        "paths": {
+            "@elurjs/core": ["../elur-core/src/elur/index.ts"],
+            "@elurjs/ui-brain/internal": ["../elur-ui-brain/src/internal/index.ts"],
+            "@elurjs/ui-brain/utils": ["../elur-ui-brain/src/utils/index.ts"],
+            "@elurjs/ui-brain/*": ["../elur-ui-brain/src/*.ts"]
+        }
+    },
+    "include": ["ui/**/*.ts"]
+}
